@@ -21,6 +21,8 @@ import { WalletResponse } from './seznami/models/wallet';
         <button (click)="goToStats()">Go to Stats</button>
     </div>
 
+    <img *ngIf="showHomeImage" src="../assets/photo.webp" alt="Casino Image" class="home-image">
+
 <router-outlet (activate)="onWalletUpdatedIfRoulette($event)"></router-outlet>
     </div>
   `,
@@ -82,6 +84,8 @@ export class AppComponent implements OnInit {
   naslov = 'jfCasino';
   wallet: WalletResponse | null = null;
 
+showHomeImage = true; // <-- controls the image visibility
+
   constructor(private walletService: WalletService, private router: Router) {}
 
   ngOnInit(): void {
@@ -92,24 +96,25 @@ export class AppComponent implements OnInit {
     );
   }
 
-    goToRoulette() {
+  goToRoulette() {
+    this.showHomeImage = false; // hide image when navigating
     if (this.router.url === '/roulette') {
-        // Already on roulette page → go back to home
-        this.router.navigate(['/']);
+      this.router.navigate(['/']);
+      this.showHomeImage = true; // show again if going back
     } else {
-        // Go to roulette page
-        this.router.navigate(['/roulette']);
+      this.router.navigate(['/roulette']);
     }
-    }
-    goToStats() {
+  }
+
+  goToStats() {
+    this.showHomeImage = false; // hide image when navigating
     if (this.router.url === '/stats') {
-        // Already on stats page → go back to home
-        this.router.navigate(['/']);
+      this.router.navigate(['/']);
+      this.showHomeImage = true; // show again if going back
     } else {
-        // Go to stats page
-        this.router.navigate(['/stats']);
+      this.router.navigate(['/stats']);
     }
-    }
+  }
 
       // Fetch wallet data
   loadWallet() {
