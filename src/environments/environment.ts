@@ -1,4 +1,6 @@
 export const environment = {
-    production: false,
-    apiUrl: 'https://nakupovanje.prpo.si/v1'
+  production: false,
+  rouletteServiceUrl: 'http://localhost:8080/rulette',
+  walletServiceUrl: 'http://localhost:8081/wallets',
+  statsServiceUrl: 'http://localhost:8082/stats'
 };

@@ -1,0 +1,19 @@
+<h2>Statistics</h2>
+
+<div class="leaderboard">
+  <h3>Leaderboard (Top 5)</h3>
+  <ul>
+    <li *ngFor="let wallet of top5">
+      {{ wallet.userID }} - Balance: {{ wallet.balance | currency:'USD':'symbol' }}
+    </li>
+  </ul>
+</div>
+
+<div class="user-bets">
+  <h3>Your Recent Bets</h3>
+  <ul>
+    <li *ngFor="let bet of userBets">
+      Game: {{ bet.gameId }}, Stake: {{ bet.totalStake }}, Winnings: {{ bet.totalWinnings }}, Date: {{ bet.createdAt }}
+    </li>
+  </ul>
+</div>

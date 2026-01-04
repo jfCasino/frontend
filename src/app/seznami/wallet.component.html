@@ -1,0 +1,15 @@
+<div class="wallet-container" *ngIf="!loading && wallet; else loadingOrError">
+  <h2>Your Wallet</h2>
+  <p><strong>User ID:</strong> {{ wallet.userID }}</p>
+  <p><strong>Balance:</strong> {{ wallet.balance | currency:'USD':'symbol' }}</p>
+
+  <div class="buttons">
+    <button (click)="goToRoulette()">Go to Roulette</button>
+    <button (click)="goToStats()">Go to Stats</button>
+  </div>
+</div>
+
+<ng-template #loadingOrError>
+  <div *ngIf="loading">Loading wallet...</div>
+  <div *ngIf="errorMessage">{{ errorMessage }}</div>
+</ng-template>

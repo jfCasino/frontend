@@ -1,0 +1,14 @@
+<div class="app-container">
+  <h1>{{ naslov }}</h1>
+
+  <div class="wallet-container" *ngIf="wallet">
+    <h2>Wallet Balance</h2>
+    <p>User ID: {{ wallet.userID }}</p>
+    <p>Balance: {{ wallet.balance | currency:'USD':'symbol' }}</p>
+  </div>
+
+  <div class="buttons">
+    <button (click)="goToRoulette()">Go to Roulette</button>
+    <button (click)="goToStats()">Go to Stats</button>
+  </div>
+</div>

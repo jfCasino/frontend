@@ -1,15 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {SeznamiComponent} from './seznami/seznami.component';
-import {SeznamPodrobnostiComponent} from './seznami/seznam-podrobnosti.component';
-import { ArtikelDodajComponent } from './seznami/artikel-dodaj.component';
+import {RouletteComponent} from './seznami/roulette.component';
+import {WalletComponent} from './seznami/wallet.component';
+import {StatisticsComponent} from './seznami/stats.component';
+import {HomeComponent} from './seznami/home.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: '/seznami', pathMatch: 'full'},
-    {path: 'seznami', component: SeznamiComponent},
-    {path: 'seznami/:id', component: SeznamPodrobnostiComponent},
-    {path: 'seznami/:id/dodaj', component: ArtikelDodajComponent}
+    { path: 'wallets', component: WalletComponent },
+    { path: 'roulette', component: RouletteComponent },
+    { path: 'stats', component: StatisticsComponent },
+    { path: '', redirectTo: '/', pathMatch: 'full' } // root goes to AppComponent by default
 ];
 
 @NgModule({

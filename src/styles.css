@@ -1,77 +1,188 @@
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+/* ---------------------------
+   Global Beige Theme - Relaxing
+---------------------------- */
+
+/* Base body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f0e6; /* soft beige background */
+    color: #4b3f35; /* soft brown text */
+    margin: 0;
+    padding: 0;
 }
 
-.selected {
-  background-color: #CFD8DC !important;
-  color: white;
-}
-.seznami {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
-}
-.seznami li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0 0 .3em;
-  height: 1.6em;
-  border-radius: 4px;
-}
-.seznami li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.seznami li.selected:hover {
-  background-color: #BBD8DC !important;
-  color: white;
-}
-.seznami .text {
-  position: relative;
-  top: -3px;
+/* Container for main content */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff8f0;
+    border-radius: 1rem; /* rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* subtle shadow */
 }
 
-.artikli ul {
-  list-style-type: circle;
+/* Headings */
+h1, h2, h3, h4 {
+    color: #5c4a3d;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
-.seznami .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
-}
+/* Buttons */
 button {
-  font-family: Arial;
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-  margin: 0.2em;
+    background-color: #e6d7c3; /* beige button */
+    color: #4b3f35;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
 button:hover {
-  background-color: #cfd8dc;
+    background-color: #d9c5a8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
-button.delete {
-  float:right;
-  margin-right: .8em;
-  background-color: gray !important;
-  color:white;
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Input fields */
+input, select, textarea {
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.8rem;
+    border: 1px solid #dccbb1;
+    background-color: #fff8f0;
+    color: #4b3f35;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #cbb89e;
+    box-shadow: 0 0 8px rgba(203, 184, 158, 0.4);
+}
+
+/* Cards / components boxes */
+.card {
+    background-color: #fff8f0;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 1.2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+a {
+    color: #7a5c44;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #5c3f2d;
+}
+
+/* Tables (for stats/leaderboard) */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: #fff8f0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+th, td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2d7c5;
+}
+
+th {
+    background-color: #e6d7c3;
+    font-weight: 600;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Small UI touches */
+hr {
+    border: 0;
+    height: 1px;
+    background: #dccbb1;
+    margin: 2rem 0;
+}
+
+
+.win {
+  color: green;
+  font-weight: bold;
+}
+
+.lose {
+  color: red;
+}
+
+.bet-row {
+  display: flex;
+  align-items: center;       /* vertical center of inputs/buttons */
+  justify-content: flex-start; 
+  gap: 12px;                 /* space between inputs */
+  margin-bottom: 10px;
+  flex-wrap: wrap;           /* wrap on small screens */
+  padding-right: 40px;       /* space for remove button on the right */
+  position: relative;
+}
+
+/* Style remove button to sit on the right of the row */
+.bet-row button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: none;
+  background-color: #e6d8b0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.bet-row button:hover {
+  background-color: #d8c39e;
+}
+
+/* Optional: make inputs a fixed width for alignment */
+.bet-row input,
+.bet-row select {
+  width: 120px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }

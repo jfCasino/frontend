@@ -1,0 +1,60 @@
+<h2>Roulette</h2>
+
+<div class="bet-form">
+  <p>Place your bets:</p>
+  
+  <div *ngFor="let bet of bets; let i = index" class="bet-row">
+    <label>
+      Bet Type:
+      <select [(ngModel)]="bet.betType" name="betType{{i}}" (change)="updateTargetOptions(bet)">
+        <option value="NUMBER">NUMBER</option>
+        <option value="COLOR">COLOR</option>
+        <option value="ODD_EVEN">ODD_EVEN</option>
+        <option value="THIRDS">THIRDS</option>
+      </select>
+    </label>
+
+    <label>
+      Target:
+      <select [(ngModel)]="bet.target" name="target{{i}}">
+        <option *ngFor="let t of bet.targetOptions" [value]="t">{{ t }}</option>
+      </select>
+    </label>
+
+    <label>
+      Amount:
+      <input type="number" [(ngModel)]="bet.amount" name="amount{{i}}" min="1" />
+    </label>
+
+    <button type="button" *ngIf="i > 0" (click)="removeBet(i)">Remove</button>
+  </div>
+
+  <div class="buttons">
+    <button type="button" (click)="addBet()">Add Bet</button>
+    <button type="button" (click)="placeBets()">Place Bets</button>
+  </div>
+</div>
+
+<!-- Display results -->
+<div *ngIf="spinResults?.length > 0 || spinColor">
+  <h3>Spin Result:</h3>
+
+  <!-- Show the spin number and color -->
+  <p *ngIf="spinNumber !== null && spinColor">
+    Number: {{spinNumber}}, Color: 
+    <span [ngStyle]="{'color': spinColor.toLowerCase()}">{{spinColor}}</span>
+  </p>
+
+  <!-- List each individual bet -->
+  <ul>
+    <li *ngFor="let r of spinResults">
+      {{r.betType}} on {{r.target}}: Wager {{r.amount}}, 
+      <span [ngClass]="{'win': r.isWin, 'lose': !r.isWin}">
+        Payout {{r.payout}} ({{r.isWin ? 'WIN' : 'LOSE'}})
+      </span>
+    </li>
+  </ul>
+
+  <!-- Total winnings -->
+  <p>Total Payout: {{totalPayout}}</p>
+</div>
