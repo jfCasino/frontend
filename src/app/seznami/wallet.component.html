@@ -1,7 +1,7 @@
 <div class="wallet-container" *ngIf="!loading && wallet; else loadingOrError">
   <h2>Your Wallet</h2>
   <p><strong>User ID:</strong> {{ wallet.userID }}</p>
-  <p><strong>Balance:</strong> {{ wallet.balance | currency:'USD':'symbol' }}</p>
+  <p><strong>Balance:</strong> {{ wallet.balance | currency:'EUR':'symbol' }}</p>
 
   <div class="buttons">
     <button (click)="goToRoulette()">Go to Roulette</button>

@@ -13,7 +13,7 @@ import { WalletResponse } from './seznami/models/wallet';
   <div class="wallet-container" *ngIf="wallet">
     <h2>Wallet Balance</h2>
     <p>User ID: {{ wallet.userID }}</p>
-    <p>Balance: {{ wallet.balance | currency:'USD':'symbol' }}</p>
+    <p>Balance: {{ wallet.balance | currency:'EUR':'symbol' }}</p>
   </div>
 
     <div class="buttons">

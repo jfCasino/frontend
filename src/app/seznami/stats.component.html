@@ -4,7 +4,7 @@
   <h3>Leaderboard (Top 5)</h3>
   <ul>
     <li *ngFor="let wallet of top5">
-      {{ wallet.userID }} - Balance: {{ wallet.balance | currency:'USD':'symbol' }}
+      {{ wallet.userID }} - Balance: {{ wallet.balance | currency:'EUR':'symbol' }}
     </li>
   </ul>
 </div>
